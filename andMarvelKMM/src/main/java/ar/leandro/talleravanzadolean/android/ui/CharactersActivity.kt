@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import ar.leandro.talleravanzadolean.android.databinding.ActivityCharactersBinding
 import ar.leandro.talleravanzadolean.android.ui.adapter.CharactersAdapter
+import ar.leandro.talleravanzadolean.model.Character
 import kotlinx.coroutines.launch
 
 class CharactersActivity : AppCompatActivity() {
@@ -40,8 +41,8 @@ class CharactersActivity : AppCompatActivity() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.screenState.collect {
                     when (it) {
-                        ScreenState.Loading -> showLoading()
-                        ScreenState.Error -> handleError()
+                        //ScreenState.Loading -> showLoading()
+                        //ScreenState.Error -> handleError()
                         is ScreenState.ShowCharacters -> showCharacters(it.list)
                     }
                 }
