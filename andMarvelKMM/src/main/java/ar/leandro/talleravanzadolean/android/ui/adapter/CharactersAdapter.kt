@@ -3,8 +3,9 @@ package ar.leandro.talleravanzadolean.android.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ar.edu.unlam.marvelcharacters.databinding.ListItemCharacterBinding
+import ar.leandro.talleravanzadolean.android.databinding.ListItemCharacterBinding
 import ar.leandro.talleravanzadolean.android.ui.holder.CharacterViewHolder
+import ar.leandro.talleravanzadolean.model.Character
 
 class CharactersAdapter : RecyclerView.Adapter<CharacterViewHolder>() {
 

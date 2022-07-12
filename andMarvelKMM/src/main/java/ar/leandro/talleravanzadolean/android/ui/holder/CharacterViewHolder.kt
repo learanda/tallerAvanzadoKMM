@@ -1,7 +1,8 @@
 package ar.leandro.talleravanzadolean.android.ui.holder
 
 import androidx.recyclerview.widget.RecyclerView
-import ar.edu.unlam.marvelcharacters.databinding.ListItemCharacterBinding
+import ar.leandro.talleravanzadolean.android.databinding.ListItemCharacterBinding
+import ar.leandro.talleravanzadolean.model.Character
 import com.squareup.picasso.Picasso
 
 class CharacterViewHolder(private val binding: ListItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {

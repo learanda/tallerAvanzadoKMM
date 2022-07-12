@@ -32,6 +32,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
                 implementation("io.github.aakira:napier:2.1.0")
+                implementation("com.squareup.okio:okio:3.1.0")
             }
         }
         val commonTest by getting {

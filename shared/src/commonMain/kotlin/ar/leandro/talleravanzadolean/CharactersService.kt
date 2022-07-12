@@ -1,42 +1,23 @@
 package ar.leandro.talleravanzadolean
 
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
+import ar.leandro.talleravanzadolean.model.Character
+import ar.leandro.talleravanzadolean.repository.CharactersRepository
+import io.ktor.util.date.*
 
-class CharactersService(
-    private val charactersRepository: CharactersRepository
-) {
+class CharactersService {
+
+    private val charactersRepository = CharactersRepository()
 
     suspend fun getCharacters(): List<Character> {
-        val timestamp = System.currentTimeMillis()
-        val characters = charactersRepository.getCharacters(
+        val timestamp = getTimeMillis()
+        val charactersResponse = charactersRepository.get(
             timestamp,
-            md5(timestamp.toString() + PrivateKey + PublicKey)
+            HashGenerator.MD5(timestamp.toString() + Constants.MARVEL_API_PRIVATE_KEY + Constants.MARVEL_API_PUBLIC_KEY)
         )
+
+        val characters = charactersResponse.toModel()
+
         return sort(characters)
-    }
-
-    private fun md5(string: String): String {
-        val MD5 = "MD5"
-        try {
-            // Create MD5 Hash
-            val digest = MessageDigest
-                .getInstance(MD5)
-            digest.update(string.toByteArray())
-            val messageDigest = digest.digest()
-
-            // Create Hex String
-            val hexString = StringBuilder()
-            for (aMessageDigest in messageDigest) {
-                var h = Integer.toHexString(0xFF and aMessageDigest.toInt())
-                while (h.length < 2) h = "0$h"
-                hexString.append(h)
-            }
-            return hexString.toString()
-        } catch (e: NoSuchAlgorithmException) {
-            e.printStackTrace()
-        }
-        return ""
     }
 
     private fun sort(characters: List<Character>): List<Character> {

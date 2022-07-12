@@ -1,8 +1,8 @@
 package ar.leandro.talleravanzadolean.repository
 
-import ar.leandro.talleravanzadolean.CharactersResponse
 import ar.leandro.talleravanzadolean.Constants
 import ar.leandro.talleravanzadolean.initLogger
+import ar.leandro.talleravanzadolean.model.CharactersResponse
 import io.github.aakira.napier.Napier
 import io.ktor.client.*
 import io.ktor.client.call.*

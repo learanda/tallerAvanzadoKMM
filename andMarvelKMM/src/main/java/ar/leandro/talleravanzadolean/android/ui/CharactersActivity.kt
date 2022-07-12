@@ -11,18 +11,18 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import ar.edu.unlam.marvelcharacters.databinding.ActivityCharactersBinding
+import ar.leandro.talleravanzadolean.android.databinding.ActivityCharactersBinding
 import ar.leandro.talleravanzadolean.android.ui.adapter.CharactersAdapter
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class CharactersActivity : AppCompatActivity() {
 
     private lateinit var charactersAdapter: CharactersAdapter
+    private lateinit var binding: ActivityCharactersBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityCharactersBinding.inflate(layoutInflater)
+        binding = ActivityCharactersBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Setup del listado
@@ -34,13 +34,14 @@ class CharactersActivity : AppCompatActivity() {
             this.addItemDecoration(VerticalSpaceItemDecoration(16))
         }
 
-        // Listen to Retrofit response
+        // Listen to Marvel Api response
         val viewModel = ViewModelProvider(this, CharactersViewModelFactory())[CharactersViewModel::class.java]
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.screenState.collect {
                     when (it) {
                         ScreenState.Loading -> showLoading()
+                        ScreenState.Error -> handleError()
                         is ScreenState.ShowCharacters -> showCharacters(it.list)
                     }
                 }
@@ -49,7 +50,15 @@ class CharactersActivity : AppCompatActivity() {
     }
 
     private fun showLoading() {
+        TODO("Not yet implemented")
+    }
 
+    private fun handleError() {
+        showErrorScreen()
+    }
+
+    private fun showErrorScreen() {
+        TODO("Not yet implemented")
     }
 
     private fun showCharacters(list: List<Character>) {
