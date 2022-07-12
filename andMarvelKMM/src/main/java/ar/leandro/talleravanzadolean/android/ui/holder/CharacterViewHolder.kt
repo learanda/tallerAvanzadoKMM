@@ -1,4 +1,4 @@
-package ar.leandro.talleravanzadolean.android
+package ar.leandro.talleravanzadolean.android.ui.holder
 
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.unlam.marvelcharacters.databinding.ListItemCharacterBinding

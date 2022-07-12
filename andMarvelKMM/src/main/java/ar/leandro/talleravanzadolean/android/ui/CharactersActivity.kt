@@ -1,4 +1,4 @@
-package ar.leandro.talleravanzadolean.android
+package ar.leandro.talleravanzadolean.android.ui
 
 import android.graphics.Rect
 import android.os.Bundle
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import ar.edu.unlam.marvelcharacters.databinding.ActivityCharactersBinding
+import ar.leandro.talleravanzadolean.android.ui.adapter.CharactersAdapter
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
