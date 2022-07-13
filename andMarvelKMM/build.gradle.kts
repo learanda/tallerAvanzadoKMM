@@ -44,4 +44,6 @@ dependencies {
     kapt("androidx.lifecycle:lifecycle-compiler:2.4.0-alpha03")
     // Picasso
     implementation("com.squareup.picasso:picasso:2.71828")
+    // Lottie
+    implementation ("com.airbnb.android:lottie:3.4.0")
 }
